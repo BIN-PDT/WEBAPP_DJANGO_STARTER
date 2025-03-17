@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +11,7 @@
 		<title>Django</title>
 		<link
 			rel="shortcut icon"
-			href="static/images/logo.png"
+			href="{% static "images/logo.png" %}"
 			type="image/x-icon" />
 		<!-- GOOGLE FONT -->
 		<link
@@ -23,6 +26,12 @@
 			rel="stylesheet" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 			rel="stylesheet" />
 		<!-- ALPINE JS -->
 		<script
@@ -43,6 +52,8 @@
 				--black: #1f2937;
 				--font-1: "New Amsterdam", sans-serif;
 				--font-2: "Lobster", sans-serif;
+				--font-3: "Calistoga", serif;
+				--font-4: "Barlow Condensed", system-ui;
 			}
 
 			.font-1 {
@@ -53,6 +64,18 @@
 
 			.font-2 {
 				font-family: var(--font-2);
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			.font-3 {
+				font-family: var(--font-3);
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			.font-4 {
+				font-family: var(--font-4);
 				font-weight: 400;
 				font-style: normal;
 			}
@@ -84,7 +107,7 @@
 				justify-content: center;
 				transition-property: transform;
 				transition-duration: 0.2s;
-				font-family: var(--font-2);
+				font-family: var(--font-1);
 				letter-spacing: 0.05em;
 				text-align: center;
 				color: white;
@@ -223,7 +246,7 @@
 			}
 
 			.errorlist {
-				font-family: var(--font-2);
+				font-family: var(--font-1);
 				@apply my-5 !block rounded-lg border-2 border-red-500 text-base text-[#FD5831] tracking-wider;
 			}
 
@@ -256,7 +279,7 @@
 			}
 
 			.allauth #id_password_helptext {
-				font-family: var(--font-2);
+				font-family: var(--font-1);
 				@apply absolute right-0 -bottom-11 ml-auto z-10;
 			}
 
@@ -269,7 +292,7 @@
 			}
 
 			.allauth > form > p > label[for="id_remember"] {
-				font-family: var(--font-2);
+				font-family: var(--font-1);
 				@apply block text-base not-italic;
 			}
 

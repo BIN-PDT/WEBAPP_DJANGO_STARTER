@@ -78,16 +78,16 @@
 						class="w-40 p-2 absolute z-20 right-0 bg-white text-black shadow rounded">
 						<ul
 							class="hover-list [&>li>a]:text-base [&>li>a]:justify-end">
-							<li><a href="#">My Profile</a></li>
-							<li><a href="#">Edit Profile</a></li>
-							<li><a href="#">Settings</a></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="{% url "profile" %}">My Profile</a></li>
+							<li><a href="{% url "profile-edit" %}">Edit Profile</a></li>
+							<li><a href="{% url "profile-settings" %}">Settings</a></li>
+							<li><a href="{% url "account_logout" %}">Logout</a></li>
 						</ul>
 					</div>
 				</li>
 			{% else %}
-				<li><a href="#">Log In</a></li>
-				<li><a href="#">Sign Up</a></li>
+				<li><a href="{% url "account_login" %}">Log In</a></li>
+				<li><a href="{% url "account_signup" %}?next={% url "profile-onboarding" %}">Sign Up</a></li>
 			{% endif %}
 		</ul>
 	</nav>
