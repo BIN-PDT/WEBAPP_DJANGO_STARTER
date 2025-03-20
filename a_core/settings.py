@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.twitter",
+    "allauth.socialaccount.providers.facebook",
     "a_home",
     "a_user",
 ]
@@ -100,7 +103,25 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         "SCOPE": ["profile", "email"],
         "AUTH_PARAMS": {"access_type": "online", "prompt": "consent"},
-    }
+    },
+    "github": {
+        "APP": {
+            "client_id": env("OAUTH_GITHUB_CLIENT_ID"),
+            "secret": env("OAUTH_GITHUB_CLIENT_SECRET"),
+        }
+    },
+    "twitter": {
+        "APP": {
+            "client_id": env("OAUTH_TWITTER_CLIENT_ID"),
+            "secret": env("OAUTH_TWITTER_CLIENT_SECRET"),
+        }
+    },
+    "facebook": {
+        "APP": {
+            "client_id": env("OAUTH_FACEBOOK_CLIENT_ID"),
+            "secret": env("OAUTH_FACEBOOK_CLIENT_SECRET"),
+        }
+    },
 }
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
