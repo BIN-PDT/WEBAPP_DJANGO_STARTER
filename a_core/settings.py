@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from environ import Env
+
+
+env = Env()
+env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +53,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     "a_home",
     "a_user",
 ]
@@ -82,6 +89,33 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "a_core.wsgi.application"
+
+
+# SOCIAL ACCOUNT.
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APP": {
+            "client_id": env("OAUTH_GOOGLE_CLIENT_ID"),
+            "secret": env("OAUTH_GOOGLE_CLIENT_SECRET"),
+        },
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online", "prompt": "consent"},
+    }
+}
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_ADAPTER = "a_user.adapters.CustomAccountAdapter"
+
+SOCIALACCOUNT_ADAPTER = "a_user.adapters.SocialAccountAdapter"
 
 
 # Database
@@ -146,6 +180,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # ADDITIONAL CONFIGURATION.
 
 LOGIN_REDIRECT_URL = "home"
+
+ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_LOGIN_METHODS = ["username", "email"]
 
