@@ -202,6 +202,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "home"
 
+ACCOUNT_SIGNUP_REDIRECT_URL = "profile-onboarding"
+
+ACCOUNT_LOGOUT_REDIRECT_URL = "home"
+
 ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_LOGIN_METHODS = ["username", "email"]
