@@ -197,6 +197,18 @@
 				@apply p-2 flex items-center text-sm;
 			}
 
+			.card {
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				border-radius: 1rem;
+				padding: 1.5rem;
+				margin: 3rem;
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+				background-color: white;
+			}
+
 			.secondary-action {
 				background-color: white;
 				color: rgba(0, 0, 0, 0.6);
@@ -225,10 +237,6 @@
 			}
 
 			/* ALLAUTH */
-
-			.allauth {
-				@apply !p-7;
-			}
 
 			.allauth a {
 				@apply hover:underline;

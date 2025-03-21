@@ -3,13 +3,11 @@
 
 {% block content %}
     <div class="flex flex-col items-center">
-        <div
-            x-data="{ modal_open: false }"
-            class="w-full md:w-[36rem] lg:w-[50rem]">
-            <div class="card p-6">
+        <div class="w-full md:w-[42rem] lg:w-[56rem]">
+            <div class="card">
                 <div class="text-center flex flex-col items-center">
                     <img
-                        class="w-36 h-36 rounded-full object-cover mb-4"
+                        class="size-36 rounded-full object-cover mb-4"
                         src="{{ profile.avatar }}" />
                     <div class="max-w-md">
                         <h1 class="font-3">{{ profile.name }}</h1>
