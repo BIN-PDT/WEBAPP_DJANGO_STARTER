@@ -51,7 +51,7 @@
             </div>
         </div>
         <!-- SOCIAL ACCOUNT -->
-        <div class="flex justify-between items-center">
+        <div class="flex flex-wrap gap-1 md:flex-nowrap md:gap-0 justify-between items-center">
             <h3 class="basis-full md:basis-[25%] font-1 tracking-wide">Social Account</h3>
             <div class="grow font-1 flex gap-4">
                 <a class="!no-underline opacity-30 {% if "google" in used_providers %}pointer-events-none !opacity-100{% endif %}" href="{% url "link-social-account" "google" %}">
