@@ -10,4 +10,5 @@ urlpatterns = [
     path("settings/", views.profile_settings_view, name="profile-settings"),
     path("delete/", views.profile_delete_view, name="profile-delete"),
     path("verify_email/", views.account_verify_email, name="verify-email"),
+    path("link/<str:provider>/", views.link_social_account, name="link-social-account"),
 ]
