@@ -200,6 +200,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # ADDITIONAL CONFIGURATION.
 
+AUTH_USER_MODEL = "a_user.User"
+
 LOGIN_REDIRECT_URL = "home"
 
 ACCOUNT_SIGNUP_REDIRECT_URL = "profile-onboarding"
