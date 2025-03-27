@@ -45,6 +45,7 @@ def profile_edit_view(request: HttpRequest):
 @login_required
 def profile_settings_view(request: HttpRequest):
     user = request.user
+    email_address = user.emailaddress_set.get(primary=True)
     used_providers = [e.provider for e in user.socialaccount_set.all()]
     form = AccountEmailChangeForm(instance=user)
 
@@ -66,7 +67,11 @@ def profile_settings_view(request: HttpRequest):
 
         return redirect("profile-settings")
 
-    context = {"form": form, "used_providers": used_providers}
+    context = {
+        "form": form,
+        "email_address": email_address,
+        "used_providers": used_providers,
+    }
     return render(request, "a_user/profile_settings.html", context)
 
 
