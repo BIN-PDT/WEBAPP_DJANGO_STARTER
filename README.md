@@ -8,6 +8,8 @@ _For privacy reasons, replace the sensitive information in this project with you
 
 -   _Register OAuth Application with each Social Provider to obtain `CLIENT_ID` & `CLIENT_SECRET`_.
 
+-   _Replace `EMAIL_ADDRESS` & `EMAIL_PASSWORD` (Application Password) with your Gmail Account_.
+
 -   _Generate `SECRET_KEY`_.
 
     ```
