@@ -95,6 +95,7 @@ WSGI_APPLICATION = "a_core.wsgi.application"
 
 
 # SOCIAL ACCOUNT.
+
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "APP": {
@@ -198,6 +199,28 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+# EMAIL CONFIGURATION.
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+if not DEBUG:
+    EMAIL_HOST_USER = env("EMAIL_ADDRESS")
+
+    EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
+
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+    EMAIL_HOST = "smtp.gmail.com"
+
+    EMAIL_PORT = 587
+
+    EMAIL_USE_TLS = True
+
+    DEFAULT_FROM_EMAIL = f"Awesome {EMAIL_HOST_USER}"
+
+    ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+
+
 # ADDITIONAL CONFIGURATION.
 
 AUTH_USER_MODEL = "a_user.User"
@@ -213,5 +236,3 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_LOGIN_METHODS = ["username", "email"]
 
 ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
